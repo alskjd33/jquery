@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>effect ex</title>
+    <script src="jquery-1.10.2.min.js"></script>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+      .red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn">
+      <input type="button" value="append" class="append" />
+      <input type="button" value="remove" class="remove" />
+      <input type="button" value="show" class="show" />
+      <input type="button" value="hide" class="hide" />
+      <input type="button" value="toggle" class="toggle" />
+      <input type="button" value="fadein" class="fadein" />
+      <input type="button" value="fadeout" class="fadeout" />
+      <input type="button" value="fadetoggle" class="fadetoggle" />
+      <input type="button" value="addclass" class="addclass" />
+      <input type="button" value="removeclass" class="removeclass" />
+      <input type="button" value="toggleclass" class="toggleclass" />
+      <input type="button" value="slideup" class="slideup" />
+      <input type="button" value="slidedown" class="slidedown" />
+      <input type="button" value="slidetoggle" class="slidetoggle" />
+    </div>
+    <div class="content"></div>
+    <script>
+      $(".append").click(() => {
+        $(".content").append(`<div class="box"></div>`);
+        $(".box").last().css("background-color", makeColor);
+      });
+      //색상 랜덤으로 만드는 함수
+      function makeColor() {
+        const ramdomColor = "#" + Math.round(Math.random() * 0xffffff).toString(16);
+        return ramdomColor;
+      }
+      //박스를 지운다
+      $(".remove").click(() => {
+        $(".box").remove();
+      });
+      //박스를 show
+      $(".show").click(() => {
+        $(".box").show();
+      });
+      ////박스를 hide
+      $(".hide").click(() => {
+        $(".box").hide();
+      });
+      //toggle
+      $(".toggle").click(() => {
+        $(".box").toggle();
+      });
+      //fadein(속도)
+      $(".fadein").click(() => {
+        $(".box").fadeIn(500);
+      });
+      //fadeout
+      $(".fadeout").click(() => {
+        $(".box").fadeOut(500);
+      });
+      //fadetoggle
+      $(".fadetoggle").click(() => {
+        $(".box").fadeToggle(500);
+      });
+      $(".addclass").click(() => {
+        $(".box").addClass("red");
+      });
+      $(".removeclass").click(() => {
+        $(".box").removeClass();
+      });
+      $(".toggleclass").click(() => {
+        $(".box").toggleClass();
+      });
+      $(".slideup").click(() => {
+        // $(".box:odd").slideUp(500) (odd:짝수남음)
+        // $(".box:even").slideUp(500) (even:홀수남음)
+        $(".box").slideUp(500);
+      });
+      $(".slidedown").click(() => {
+        $(".box").slideDown(500);
+      });
+      $(".slidetoggle").click(() => {
+        $(".content div").each(function (index, item) {
+          $(item).text(index);
+        });
+        $(".box:odd").slideUp(500)
+        // $(".box:even").slideUp(500) 
+      });
+    </script>
+  </body>
+</html>
